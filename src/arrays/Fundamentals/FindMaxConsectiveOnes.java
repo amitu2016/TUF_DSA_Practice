@@ -1,4 +1,4 @@
-package arrays;
+package arrays.Fundamentals;
 
 public class FindMaxConsectiveOnes {
 
