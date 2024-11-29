@@ -4,27 +4,26 @@ public class MoveZeros {
 
 	public static void moveZeroes(int[] nums) {
 		int n = nums.length;
+		int[] temp = new int[n];
 		
-		int a = 0;
-		int b = 1;
-		
-		for(int i = 0; i < n; i ++) {
-			if(nums[a] == 0) {
-				swap(nums, a, b);
-				a = b;
-				b++;
-			}else {
-				a++;
-				b++;
+		int count = 0;
+		for(int i = 0; i < n; i++) {
+			if(nums[i] != 0) {
+				temp[count] = nums[i];
+				count++;
 			}
 		}
+		
+		for(int i = 0; i < count; i++) {
+			nums[i] = temp[i];
+		}
+		
+		for(int i = count; i < n; i++) {
+			nums[i] = 0;
+		}
+		
 	}
 	
-	private static void swap(int[] nums, int a, int b) {
-		int temp = nums[a];
-		nums[a] = nums[b];
-		nums[b] = temp;
-	}
 
 	public static void main(String[] args) {
 		int[] nums = {0, 0, 0, 1, 3, -2};
